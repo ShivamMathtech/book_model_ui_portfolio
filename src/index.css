@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Book-inspired color palette */
+    --background: 42 35% 95%;
+    --foreground: 24 20% 15%;
+
+    --card: 40 30% 97%;
+    --card-foreground: 24 20% 15%;
+
+    --popover: 40 30% 97%;
+    --popover-foreground: 24 20% 15%;
+
+    --primary: 24 25% 20%;
+    --primary-foreground: 42 35% 95%;
+
+    --secondary: 42 20% 85%;
+    --secondary-foreground: 24 20% 15%;
+
+    --muted: 42 20% 88%;
+    --muted-foreground: 24 15% 40%;
+
+    --accent: 45 80% 55%;
+    --accent-foreground: 24 20% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 42 35% 95%;
+
+    --border: 42 25% 82%;
+    --input: 42 25% 82%;
+    --ring: 45 80% 55%;
+
+    --radius: 0.5rem;
+
+    /* Custom book theme tokens */
+    --book-page: 42 35% 95%;
+    --book-text: 24 20% 15%;
+    --book-accent: 45 80% 55%;
+    --book-accent-secondary: 180 45% 45%;
+    --book-shadow: 24 20% 15%;
+
+    --sidebar-background: 42 30% 92%;
+    --sidebar-foreground: 24 20% 15%;
+    --sidebar-primary: 24 25% 20%;
+    --sidebar-primary-foreground: 42 35% 95%;
+    --sidebar-accent: 42 20% 85%;
+    --sidebar-accent-foreground: 24 20% 15%;
+    --sidebar-border: 42 25% 82%;
+    --sidebar-ring: 45 80% 55%;
+  }
+
+  .dark {
+    --background: 24 25% 12%;
+    --foreground: 42 30% 92%;
+
+    --card: 24 22% 15%;
+    --card-foreground: 42 30% 92%;
+
+    --popover: 24 22% 15%;
+    --popover-foreground: 42 30% 92%;
+
+    --primary: 42 30% 92%;
+    --primary-foreground: 24 25% 12%;
+
+    --secondary: 24 20% 20%;
+    --secondary-foreground: 42 30% 92%;
+
+    --muted: 24 20% 20%;
+    --muted-foreground: 42 20% 65%;
+
+    --accent: 45 70% 50%;
+    --accent-foreground: 24 25% 12%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 42 30% 92%;
+
+    --border: 24 20% 25%;
+    --input: 24 20% 25%;
+    --ring: 45 70% 50%;
+
+    /* Custom book theme tokens */
+    --book-page: 24 25% 12%;
+    --book-text: 42 30% 92%;
+    --book-accent: 45 70% 50%;
+    --book-accent-secondary: 180 40% 50%;
+    --book-shadow: 0 0% 0%;
+
+    --sidebar-background: 24 22% 10%;
+    --sidebar-foreground: 42 30% 92%;
+    --sidebar-primary: 45 70% 50%;
+    --sidebar-primary-foreground: 24 25% 12%;
+    --sidebar-accent: 24 20% 20%;
+    --sidebar-accent-foreground: 42 30% 92%;
+    --sidebar-border: 24 20% 25%;
+    --sidebar-ring: 45 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Georgia', 'Garamond', serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Georgia', 'Garamond', serif;
+  }
+}
+
+@layer utilities {
+  /* Page flip animations */
+  .page-flip-enter {
+    animation: pageFlipIn 0.8s ease-out forwards;
+  }
+
+  .page-flip-exit {
+    animation: pageFlipOut 0.8s ease-in forwards;
+  }
+
+  @keyframes pageFlipIn {
+    0% {
+      transform: perspective(2000px) rotateY(-90deg);
+      opacity: 0;
+      transform-origin: left center;
+    }
+    100% {
+      transform: perspective(2000px) rotateY(0deg);
+      opacity: 1;
+      transform-origin: left center;
+    }
+  }
+
+  @keyframes pageFlipOut {
+    0% {
+      transform: perspective(2000px) rotateY(0deg);
+      opacity: 1;
+      transform-origin: left center;
+    }
+    100% {
+      transform: perspective(2000px) rotateY(90deg);
+      opacity: 0;
+      transform-origin: left center;
+    }
+  }
+}
